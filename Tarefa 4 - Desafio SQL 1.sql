@@ -37,6 +37,13 @@ limit 100;
 
 -- Questão 4.retorne pedidos que foram feitos somente no ano de 2017. 
 SELECT *
+FROM olist_orders_dataset
+WHERE order_purchase_timestamp LIKE '2017%'
+ORDER BY order_purchase_timestamp DESC
+LIMIT 100;
+
+-- Questão 5. encontre os clientes do estado de SP e que não morem na cidade de São Paulo.
+SELECT *
 From olist_geolocation_dataset
 limit 100;
 
@@ -45,11 +52,9 @@ From olist_geolocation_dataset
 where geolocation_city LIKE '__o _aulo'
 limit 100;
 
--- Questão 5. encontre os clientes do estado de SP e que não morem na cidade de São Paulo.
 SELECT *
 From olist_customers_dataset
 Where customer_state = 'SP'
 AND customer_city <> '__o _aulo'
 GROUP BY customer_city
 limit 100;
-
